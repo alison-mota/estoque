@@ -1,19 +1,17 @@
-package br.com.estoque.estoque.cliente
+package br.com.estoque.estoque.empresa
 
-import br.com.estoque.estoque.empresa.Empresa
+import org.hibernate.validator.constraints.br.CNPJ
 import java.time.LocalDateTime
 import javax.persistence.*
-import javax.validation.constraints.Email
 import javax.validation.constraints.NotBlank
-import javax.validation.constraints.NotNull
 
 @Entity
-class Cliente(
-    @field:NotBlank val nome: String,
-    @field:NotBlank @field:Email val email: String,
-    @ManyToOne
-    @field:NotNull val empresa: Empresa
-) {
+class Empresa (
+    @field:NotBlank val nomeFantasia: String,
+    @field:NotBlank val razaoSocial: String,
+    @field:CNPJ val cnpj: String,
+    val inscricaoEstadual: Long
+        ){
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false, unique = true)

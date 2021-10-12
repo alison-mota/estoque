@@ -1,19 +1,18 @@
-package br.com.estoque.estoque.cliente
+package br.com.estoque.estoque.produto.grupo
 
 import br.com.estoque.estoque.empresa.Empresa
 import java.time.LocalDateTime
 import javax.persistence.*
-import javax.validation.constraints.Email
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.NotNull
 
 @Entity
-class Cliente(
+class Grupo(
     @field:NotBlank val nome: String,
-    @field:NotBlank @field:Email val email: String,
     @ManyToOne
     @field:NotNull val empresa: Empresa
 ) {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false, unique = true)
