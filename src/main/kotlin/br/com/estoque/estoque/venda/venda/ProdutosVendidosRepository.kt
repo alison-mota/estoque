@@ -1,4 +1,4 @@
-package br.com.estoque.estoque.produto.venda
+package br.com.estoque.estoque.venda.venda
 
 import org.springframework.data.jpa.repository.JpaRepository
 

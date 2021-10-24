@@ -1,4 +1,4 @@
-package br.com.estoque.estoque.produto.venda
+package br.com.estoque.estoque.venda.venda
 
 import java.math.BigDecimal
 import javax.validation.constraints.NotNull

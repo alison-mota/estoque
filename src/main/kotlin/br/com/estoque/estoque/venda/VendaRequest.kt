@@ -3,7 +3,7 @@ package br.com.estoque.estoque.venda
 import br.com.estoque.estoque.compartilhado.validadores.ExistsById
 import br.com.estoque.estoque.empresa.Empresa
 import br.com.estoque.estoque.produto.Produto
-import br.com.estoque.estoque.produto.venda.ProdutoRequestVenda
+import br.com.estoque.estoque.venda.venda.ProdutoRequestVenda
 import java.math.BigDecimal
 import javax.validation.constraints.NotNull
 import javax.validation.constraints.PositiveOrZero

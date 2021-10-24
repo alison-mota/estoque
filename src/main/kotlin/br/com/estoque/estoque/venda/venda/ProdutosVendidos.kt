@@ -1,4 +1,4 @@
-package br.com.estoque.estoque.produto.venda
+package br.com.estoque.estoque.venda.venda
 
 import br.com.estoque.estoque.empresa.Empresa
 import br.com.estoque.estoque.produto.grupo.Grupo
