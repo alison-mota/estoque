@@ -3,9 +3,9 @@ package br.com.estoque.estoque.venda
 import br.com.estoque.estoque.empresa.Empresa
 import br.com.estoque.estoque.produto.Produto
 import br.com.estoque.estoque.produto.ProdutoRepository
-import br.com.estoque.estoque.venda.venda.ProdutoRequestVenda
-import br.com.estoque.estoque.venda.venda.ProdutosVendidos
-import br.com.estoque.estoque.venda.venda.ProdutosVendidosRepository
+import br.com.estoque.estoque.venda.produtos.ProdutoRequestVenda
+import br.com.estoque.estoque.venda.produtos.ProdutosVendidos
+import br.com.estoque.estoque.venda.produtos.ProdutosVendidosRepository
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 import org.springframework.web.server.ResponseStatusException
