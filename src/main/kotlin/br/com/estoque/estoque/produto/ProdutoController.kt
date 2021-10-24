@@ -2,7 +2,6 @@ package br.com.estoque.estoque.produto
 
 import br.com.estoque.estoque.empresa.Empresa
 import br.com.estoque.estoque.empresa.EmpresaRepository
-import br.com.estoque.estoque.produto.grupo.Grupo
 import br.com.estoque.estoque.produto.grupo.GrupoRepository
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
