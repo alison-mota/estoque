@@ -28,10 +28,11 @@ class ProdutoController(
         uriBuilder: UriComponentsBuilder
     ): ResponseEntity<Any> {
         val empresa: Empresa = empresaRepository.findById(produtoRequest.empresa).get()
-        val possivelGrupo = grupoRepository.findByIdAndEmpresaId(produtoRequest.grupo, produtoRequest.empresa)
-        if(possivelGrupo.isEmpty) throw ResponseStatusException(HttpStatus.NOT_FOUND, "Grupo não encontrado nesta empresa")
+        val grupo = grupoRepository.findByIdAndEmpresaId(produtoRequest.grupo, produtoRequest.empresa).orElseGet{
+            throw ResponseStatusException(HttpStatus.NOT_FOUND, "Grupo não encontrado nesta empresa")
+        }
 
-        val produto: Produto = produtoRequest.toModel(empresa, possivelGrupo.get())
+        val produto: Produto = produtoRequest.toModel(empresa, grupo)
         produtoRepository.save(produto)
 
         val location: URI = uriBuilder

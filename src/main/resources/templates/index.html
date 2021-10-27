@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Terracota Dashboard</title>
+		<link rel="sortcut icon" href="_imagens/logo-nav.png" type="image/x-icon">
+
+		<link rel="stylesheet" href="_css/reset.css">
+		<link rel="stylesheet" href="_css/style.css">
+		<link rel="stylesheet" href="_css/style-clientes.css">
+		<link rel="stylesheet" href="_css/style-menu.css">
+		<link rel="stylesheet" href="_css/buttons.css">
+		<link rel="stylesheet" href="_css/responsividade.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<header>
+			<p class="pedidos">Pedidos para entregar hoje:</p>
+			<p class="pedidos-resultado">8</p>
+			<p class="sino"><i class="fas fa-bell"></i></p>
+			<p class="nome-usuario">Andressa Araujo</p>
+			<img class="imagem-usuario" src="_imagens/foto-perfil.png" />
+		</header>
+		<nav class="logo">
+			<a href="index.html"><p id="terra">Terra</p></a>
+			<a href="index.html"><p id="cota">cota</p></a>
+		</nav>
+		<nav class="menu">
+			<ul>
+				<li><a href="index.html"><i class="fas fa-tachometer-alt"></i><span id="nav-lateral">Dashboard</span></a></li>
+				<li><a href="clientes.html"><i class="fas fa-users"></i><span id="nav-lateral">Clientes</span></a></li>
+				<li><a href="produtos.html"><i class="fas fa-boxes"></i><span id="nav-lateral">Produtos</span></a></li>
+				<li><a href="vendas.html"><i class="far fa-calendar-check"></i><span id="nav-lateral">Vendas</span></a></li>
+				<li><a href="financeiro.html"><i class="far fa-money-bill-alt"></i><span id="nav-lateral">Financeiro</span></a></li>
+				<li><a href="configuracoes.html"><i class="fas fa-cog"></i><span id="nav-lateral">Configurações</span></a></li>
+			</ul>
+		</nav>
+		<article>
+			<section>
+				<fieldset class="resumo">
+					<ul>
+						<li id="titulo-resultado">Resultado</li>
+						<li id="conteudo-resultado">R$ 1.600</li>
+					</ul>
+				</fieldset>
+				<fieldset class="resumo" id="resumo-vendas">
+					<ul>
+						<li id="titulo-vendas">Vendas</li>
+						<li id="conteudo-vendas">R$ 6.000</li>
+					</ul>
+				</fieldset>
+				<fieldset class="resumo" id="resumo-custo">
+					<ul>
+						<li id="titulo-custo">Custo</li>
+						<li id="conteudo-custo">R$ 2.100</li>
+					</ul>
+				</fieldset>
+				<fieldset class="resumo" id="resumo-outras-saidas">
+					<ul>
+						<li id="titulo-outras-saidas">Outras Saídas</li>
+						<li id="conteudo-outras-saidas">R$ 2.300</li>
+					</ul>
+				</fieldset>
+			</section>
+			<section>
+				<button class="bt-primario" type="button"><i class="fas fa-plus"></i><span id="texto-botao"> Nova Venda</span></button>
+				<button class="bt-secundario" type="button"><i class="fas fa-plus"></i><span id="texto-botao">Novo Cliente</span></button>
+			</section>
+			<section>
+				<fieldset class="vendas">
+					<ul>
+						<li id="vendas-titulo">Vendas</li>
+						<li id="vendas-dia">Últimas 4 vendas</li>
+						<li id="vendas-listar">Listar todos</li>
+						<li class="vendas-cliente" id="vendas-cliente-1">Alison Alves</li>
+						<li class="vendas-valor" id="vendas-valor-1">R$ 125,0</li>
+						<hr>
+						<li class="vendas-cliente" id="vendas-cliente-2">Raphael Marques</li>
+						<li class="vendas-valor" id="vendas-valor-2">R$ 125,0</li>
+						<hr>
+						<li class="vendas-cliente" id="vendas-cliente-3">Jackson Alves</li>
+						<li class="vendas-valor" id="vendas-valor-3">R$ 125,0</li>
+						<hr>
+						<li class="vendas-cliente" id="vendas-cliente-4">Maria Célia</li>
+						<li class="vendas-valor" id="vendas-valor-4">R$ 125,0</li>
+					</ul>
+				</fieldset>
+				<fieldset class="tarefas">
+					<ul>
+						<label class="tarefas-titulo">Tarefas</label>
+						<label class="tarefas-dia">Hoje</label>
+						<label class="tarefas-criar-nova"><i class="fas fa-plus"></i> Criar nova tarefa</label>
+						<label class="tarefas-lista" id="tarefa-01" for="tarefas-radio-1"><input type="checkbox" id="tarefas-radio-1"><span id="tarefa-texto">Dar banho nesse neném delícia do Jorjão</span></label>
+						<hr>
+						<label class="tarefas-lista" id="tarefa-02" for="tarefas-radio-2"><input type="checkbox" id="tarefas-radio-2"><span id="tarefa-texto">Comprar vasos de barro pro Alisu (lembrar de comprar 6)</span></label>
+						<hr>
+						<label class="tarefas-lista" id="tarefa-03" for="tarefas-radio-3"><input type="checkbox" id="tarefas-radio-3"><span id="tarefa-texto">Tirar aquelas plantas do sol pq tá troll</span></label>
+						<hr>
+						<label class="tarefas-lista" id="tarefa-04" for="tarefas-radio-4"><input type="checkbox" id="tarefas-radio-4"><span id="tarefa-texto">Fazer aquela postagem do instagram logo menina</span></label>
+					</ul>
+				</fieldset>
+			</section>
+		</article>
+	</body>
+
+	<footer>
+
+	</footer>
+	<script src="_javascript/Script.js"></script>
+</html>
