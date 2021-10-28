@@ -10,5 +10,5 @@ import kotlin.math.min
 data class ProdutoRequestVenda(
     @field:NotNull val idProduto: Long,
     @field:NotNull @field:Positive val quantidadeVendido: Long,
-    @field:NotNull @field:PositiveOrZero val valorVendido: BigDecimal,
+    @field:NotNull @field:PositiveOrZero val valorDeCadaProduto: BigDecimal,
 )

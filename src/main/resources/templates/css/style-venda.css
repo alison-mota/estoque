@@ -1,0 +1,26 @@
+nav.nova-venda {
+    position: absolute;
+    height: 50px;
+    left: 300px;
+    top: 100px;
+    font-style: normal;
+    font-size: 22pt;
+    font-family: 'Mulish', sans-serif;
+    opacity: 0.7;
+}
+
+#caixa-de-texto {
+    height:30px;
+    width: 50px;
+    font-size:18pt;
+    font-weight: bold;
+
+}
+
+#pesquisa {
+    height:30px;
+    width: 200px;
+    font-size:18pt;
+    font-weight: bold;
+
+}

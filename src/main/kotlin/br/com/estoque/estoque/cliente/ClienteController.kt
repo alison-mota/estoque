@@ -35,11 +35,12 @@ class ClienteController(
     }
 
     @GetMapping
-    fun lista(paginacao: Pageable): ResponseEntity<Page<ClienteResponse>> {
+    fun lista(@RequestParam empresaId: Long,
+              paginacao: Pageable): ResponseEntity<Page<ClienteResponse>> {
 
         return ResponseEntity.ok(
             ClienteResponse
-                .of(clienteRepository.findAll(paginacao))
+                .of(clienteRepository.findAllByEmpresaId(paginacao, empresaId))
         )
     }
 }

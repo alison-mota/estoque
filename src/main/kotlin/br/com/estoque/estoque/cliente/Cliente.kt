@@ -20,5 +20,5 @@ class Cliente(
     val id: Long? = null
     @Column(updatable = false)
     val dataCadastro: LocalDateTime = LocalDateTime.now()
-    val ativo: Boolean = true
+    var ativo: Boolean = true
 }

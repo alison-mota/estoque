@@ -1,0 +1,82 @@
+﻿
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+button, input[type="submit"], input[type="reset"] {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+.bt-primario {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px 14px;
+    position: absolute;
+    width: 150px;
+    height: 42px;
+    left: 285px;
+    top: 280px;
+    background: #A7673F;
+    border-radius: 4px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    margin: 5px 25px 15px auto;
+    position: center;
+    outline: none;
+}
+
+.bt-primario:hover {
+    color: white;
+    background: #76492D;
+}
+
+.bt-primario:active {
+    background: #663E25;
+}
+
+.bt-secundario {
+    color: #A7673F;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px 14px;
+    position: absolute;
+    width: 150px;
+    height: 42px;
+    left: 450px;
+    top: 280px;
+    background-color: white;
+    border-radius: 4px;
+    border: 1px solid #A7673F;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    margin: 5px 25px 15px auto;
+    position: center;
+    outline: none;
+}
+
+.bt-secundario:hover {
+    color: white;
+    background-color: #76492D;
+}
+
+.bt-secundario:active {
+    background: #663E25;
+    border: 1px solid #A7673F;
+}
+
+#texto-botao {
+    position: relative;
+    top: 2px;
+    left: 5px;
+
+}

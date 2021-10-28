@@ -1,5 +1,6 @@
 package br.com.estoque.estoque.venda
 
+import br.com.estoque.estoque.cliente.Cliente
 import br.com.estoque.estoque.empresa.Empresa
 import br.com.estoque.estoque.venda.produtos.ProdutoVendido
 import java.math.BigDecimal
@@ -13,11 +14,12 @@ import javax.validation.constraints.Size
 class Venda(
     @field:NotNull @field:PositiveOrZero val valorDosProdutos: BigDecimal,
     @field:NotNull @field:PositiveOrZero val valorFinal: BigDecimal,
-    val desconto: Double,
     @OneToMany(cascade = [CascadeType.ALL], mappedBy = "venda")
     @field:NotNull @field:Size(min = 1) val produtos: List<ProdutoVendido> = ArrayList(),
     @ManyToOne
-    @field:NotNull val empresa: Empresa
+    @field:NotNull val empresa: Empresa,
+    @ManyToOne
+    @field:NotNull val cliente: Cliente
 ) {
 
     @Id

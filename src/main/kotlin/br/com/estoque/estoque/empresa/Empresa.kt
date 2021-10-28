@@ -10,7 +10,7 @@ class Empresa (
     @field:NotBlank val nomeFantasia: String,
     @field:NotBlank val razaoSocial: String,
     @field:CNPJ val cnpj: String,
-    val inscricaoEstadual: Long
+    val inscricaoEstadual: String
         ){
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,5 +18,5 @@ class Empresa (
     val id: Long? = null
     @Column(updatable = false)
     val dataCadastro: LocalDateTime = LocalDateTime.now()
-    val ativo: Boolean = true
+    var ativo: Boolean = true
 }

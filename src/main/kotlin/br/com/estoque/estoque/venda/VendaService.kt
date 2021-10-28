@@ -1,5 +1,6 @@
 package br.com.estoque.estoque.venda
 
+import br.com.estoque.estoque.cliente.Cliente
 import br.com.estoque.estoque.empresa.Empresa
 import br.com.estoque.estoque.produto.Produto
 import br.com.estoque.estoque.produto.ProdutoRepository
@@ -19,31 +20,54 @@ class VendaService(
 ) {
 
     @Transactional
-    fun processa(vendaRequest: VendaRequest, empresa: Empresa): Venda {
-        if(!validaValorDaVenda(vendaRequest))
-            throw ResponseStatusException(HttpStatus.BAD_REQUEST, "O valor da venda não condiz com o valor total dos produtos.")
-        val produtos = localizaProdutos(vendaRequest.produtos)
+    fun processa(vendaRequest: VendaRequest, empresa: Empresa, cliente: Cliente): Venda {
+        validaVenda(empresa, cliente, vendaRequest)
+        val produtos = localizaProdutosDaEmpresa(vendaRequest.produtos, empresa.id!!)
         produtos.map { it.atualizaEstoque(vendaRequest.produtos) }
         val produtosVendidos: List<ProdutoVendido> = instanciaProdutosVendidos(produtos, vendaRequest.produtos)
-        val venda = vendaRequest.toModel(produtosVendidos, empresa)
+        val venda = vendaRequest.toModel(produtosVendidos, empresa, cliente)
         setVendaDeCadaProduto(produtosVendidos, venda)
 
         return venda
     }
 
-    private fun validaValorDaVenda(vendaRequest: VendaRequest): Boolean {
+    fun validaVenda(
+        empresa: Empresa,
+        cliente: Cliente,
+        vendaRequest: VendaRequest,
+    ): Boolean {
+        when {
+            !empresa.ativo -> throw ResponseStatusException(HttpStatus.BAD_REQUEST, "Esta empresa não está ativa.")
+            !cliente.ativo -> throw ResponseStatusException(HttpStatus.BAD_REQUEST, "Este cliente não está ativo.")
+            cliente.empresa != empresa -> throw ResponseStatusException(
+                HttpStatus.BAD_REQUEST, "Este cliente não é desta empresa."
+            )
+            !calidaValorDaVendaIgualValorDosProdutosVendidos(vendaRequest) -> throw ResponseStatusException(
+                HttpStatus.BAD_REQUEST, "Houve diferença entre o valor da venda com a soma do valor dos produtos."
+            )
+        }
+        return true
+    }
+
+    private fun calidaValorDaVendaIgualValorDosProdutosVendidos(vendaRequest: VendaRequest): Boolean {
         var valorVendido: BigDecimal = BigDecimal.ZERO
         vendaRequest.produtos.map {
-            valorVendido += (it.valorVendido.multiply(it.quantidadeVendido.toBigDecimal()))
+            valorVendido += (it.valorDeCadaProduto.multiply(it.quantidadeVendido.toBigDecimal()))
         }
         return vendaRequest.valorFinal == valorVendido
     }
 
-    private fun localizaProdutos(produtosRequestVenda: Set<ProdutoRequestVenda>): List<Produto> {
+    private fun localizaProdutosDaEmpresa(
+        produtosRequestVenda: Set<ProdutoRequestVenda>,
+        empresaId: Long
+    ): List<Produto> {
 
         val produtos: List<Produto> = produtosRequestVenda.map {
-            produtoRepository.findById(it.idProduto).orElseGet {
-                throw ResponseStatusException(HttpStatus.NOT_FOUND, "Produto com id ${it.idProduto} não encontrado.")
+            produtoRepository.findByIdAndEmpresaId(it.idProduto, empresaId).orElseGet {
+                throw ResponseStatusException(
+                    HttpStatus.NOT_FOUND,
+                    "Produto com id ${it.idProduto} não encontrado na empresa $empresaId."
+                )
             }
         }.toList()
 
@@ -66,7 +90,7 @@ class VendaService(
                 ProdutoVendido(
                     it.nome,
                     it.preco,
-                    produtoRequestVenda.valorVendido,
+                    produtoRequestVenda.valorDeCadaProduto,
                     produtoRequestVenda.quantidadeVendido,
                     it.ativo,
                     it.grupo,

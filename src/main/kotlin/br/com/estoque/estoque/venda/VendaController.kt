@@ -1,5 +1,7 @@
 package br.com.estoque.estoque.venda
 
+import br.com.estoque.estoque.cliente.Cliente
+import br.com.estoque.estoque.cliente.ClienteRepository
 import br.com.estoque.estoque.empresa.Empresa
 import br.com.estoque.estoque.empresa.EmpresaRepository
 import org.springframework.http.HttpStatus
@@ -17,7 +19,8 @@ import javax.validation.Valid
 @RequestMapping("/api/venda")
 class VendaController(
     private val vendaService: VendaService,
-    private val empresaRepository: EmpresaRepository
+    private val empresaRepository: EmpresaRepository,
+    private val clienteRepository: ClienteRepository
 ) {
 
     @PostMapping
@@ -27,7 +30,8 @@ class VendaController(
     ): ResponseEntity<URI> {
 
         val empresa: Empresa = empresaRepository.findById(vendaRequest.empresa).orElseThrow()
-        val venda: Venda = vendaService.processa(vendaRequest, empresa)
+        val cliente: Cliente = clienteRepository.findById(vendaRequest.cliente).orElseThrow()
+        val venda: Venda = vendaService.processa(vendaRequest, empresa, cliente)
 
         val location: URI = uriBuilder
             .path("/api/venda/{id}")

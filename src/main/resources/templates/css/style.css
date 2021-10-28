@@ -1,0 +1,547 @@
+﻿* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.pedidos {
+    position: relative;
+    height: 34px;
+    left: -15px;
+    top: 0px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 28px;
+    letter-spacing: 0.3px;
+    color: rgba(37, 39, 51, 0.6);
+}
+
+.pedidos:hover {
+    font-weight: 800;
+    cursor: pointer;
+    color: #A7673F
+}
+
+.pedidos:active {
+    color: #76492D;
+}
+
+.pedidos-resultado {
+    position: absolute;
+    height: 34px;
+    left: 275px;
+    top: calc(50% - 34px/2 + 1px);
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 28px;
+    letter-spacing: 0.3px;
+    color: rgba(37, 39, 51, 0.6);
+}
+
+.sino {
+    position: absolute;
+    height: 14px;
+    top: 0px;
+    left: 770px;
+    color: #C5C7CD;
+    padding: 10px;
+}
+
+.sino:hover {
+    color: #A7673F;
+    cursor: pointer;
+}
+
+.sino:active {
+    color: #76492D;
+}
+
+.nome-usuario {
+    position: absolute;
+    width: 119px;
+    height: 18px;
+    top: 4px;
+    left: 825px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: right;
+    letter-spacing: 0.2px;
+    color: #252733;
+    border-style: solid;
+    border-width: 0px 0px 0px 2px;
+    border-color: #DFE0EB;
+    padding: 5px 0px 5px 22px;
+}
+
+.nome-usuario:hover {
+    font-weight: 800;
+    cursor: pointer;
+    color: #A7673F;
+}
+
+.nome-usuario:active {
+    color: #76492D;
+}
+
+.imagem-usuario {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    left: 980px;
+    top: -5px;
+}
+
+.imagem-usuario:hover {
+    cursor: pointer;
+}
+
+.imagem-usuario:active {
+    width: 46px;
+    height: 46px;
+}
+
+
+body {
+    background-color: ghostwhite;
+    color: rgba(0,0,0,0.8);
+}
+
+header {
+    position: absolute;
+    font-family: 'Mulish', sans-serif;
+    color: gray;
+    left: 300px;
+    top: 20px;
+    font-size: 16pt;
+}
+
+fieldset.resumo {
+    color: gray;
+    font-family: Arial, sans-serif;
+    position: absolute;
+    width: 240px;
+    height: 134px;
+    left: 285px;
+    margin-top: 0px;
+    background: #FFFFFF;
+    border: 3px solid #699A7A;
+    box-sizing: border-box;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.resumo:hover {
+    border-color: #A7673F;
+    cursor: pointer;
+}
+
+.resumo:active {
+    border-color: #76492D;
+}
+
+#titulo-resultado {
+    position: absolute;
+    height: 24px;
+    left: 0px;
+    right: 0px;
+    top: 19px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.4px;
+    color: #6DA881;
+}
+
+#conteudo-resultado {
+    position: absolute;
+    height: 50px;
+    left: 0px;
+    right: 0px;
+    top: 65px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: 1px;
+    color: #6DA881;
+}
+
+#resumo-vendas {
+    left: 545px;
+    border: 1px solid #DFE0EB;
+}
+
+#titulo-vendas {
+    position: absolute;
+    height: 24px;
+    left: 0px;
+    right: 0px;
+    top: 19px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.4px;
+    color: #9FA2B4;
+}
+
+.resumo:active {
+    border-color: #76492D;
+}
+
+#conteudo-vendas {
+    position: absolute;
+    height: 50px;
+    left: 0px;
+    right: 0px;
+    top: 65px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: 1px;
+    color: #9FA2B4;
+}
+
+#resumo-custo {
+    left: 805px;
+    border: 1px solid #DFE0EB;
+}
+
+#titulo-custo {
+    position: absolute;
+    height: 24px;
+    left: 0px;
+    right: 0px;
+    top: 19px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.4px;
+    color: #9FA2B4;
+}
+
+#conteudo-custo {
+    position: absolute;
+    height: 50px;
+    left: 0px;
+    right: 0px;
+    top: 65px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: 1px;
+    color: #9FA2B4;
+}
+
+#resumo-outras-saidas {
+    left: 1065px;
+    border: 1px solid #DFE0EB;
+}
+
+#titulo-outras-saidas {
+    position: absolute;
+    height: 24px;
+    left: 0px;
+    right: 0px;
+    top: 19px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.4px;
+    color: #9FA2B4;
+}
+
+#conteudo-outras-saidas {
+    position: absolute;
+    height: 50px;
+    left: 0px;
+    right: 0px;
+    top: 65px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: 1px;
+    color: #9FA2B4;
+}
+
+.vendas {
+    position: absolute;
+    height: 366px;
+    width: 501px;
+    left: 285px;
+    top: 378px;
+    background: #FFFFFF;
+    border: 1px solid #DFE0EB;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+#vendas-titulo {
+    position: absolute;
+    height: 24px;
+    left: 32px;
+    right: 444px;
+    top: 32px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 24px;
+    letter-spacing: 0.4px;
+    color: #252733;
+}
+
+#vendas-dia {
+    position: absolute;
+    height: 16px;
+    left: 32px;
+    top: 64px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.1px;
+    color: #9FA2B4;
+}
+
+#vendas-listar {
+    position: absolute;
+    height: 20px;
+    right: 32px;
+    top: 36px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: right;
+    letter-spacing: 0.2px;
+    color: #A7673F;
+}
+
+#vendas-listar:hover {
+    color: #76492D;
+    cursor: pointer;
+    font-weight: 800;
+}
+
+.vendas-cliente {
+    position: absolute;
+    height: 20px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+    color: #252733;
+    left: 32px;
+}
+
+#vendas-cliente-1 {
+    top: 118px;
+}
+
+#vendas-cliente-2 {
+    top: 174px;
+}
+
+#vendas-cliente-3 {
+    top: 232px;
+}
+
+#vendas-cliente-4 {
+    top: 290px;
+}
+
+.vendas-valor {
+    position: absolute;
+    width: 80px;
+    height: 20px;
+    right: 32px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: right;
+    letter-spacing: 0.2px;
+    color: #9FA2B4;
+}
+
+#vendas-valor-1 {
+    top: 118px;
+}
+
+#vendas-valor-2 {
+    top: 174px;
+}
+
+#vendas-valor-3 {
+    top: 232px;
+}
+
+#vendas-valor-4 {
+    top: 290px;
+}
+
+fieldset.vendas hr {
+    border: 1px solid #DFE0EB;
+    margin: 58px 0;
+    position: relative;
+    top: 97px;
+}
+
+.tarefas {
+    position: absolute;
+    height: 366px;
+    width: 501px;
+    left: 805px;
+    top: 378px;
+    background: #FFFFFF;
+    border: 1px solid #DFE0EB;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+.tarefas-titulo {
+    position: absolute;
+    height: 24px;
+    left: 32px;
+    top: 33px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 24px;
+    letter-spacing: 0.4px;
+    color: #252733;
+}
+
+.tarefas-dia {
+    position: absolute;
+    height: 16px;
+    left: 32px;
+    top: 64px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.1px;
+    color: #9FA2B4;
+}
+
+.tarefas-criar-nova {
+    position: absolute;
+    height: 20px;
+    left: 350px;
+    top: 33px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+    color: #A7673F;
+}
+
+.tarefas-criar-nova:hover {
+    font-weight: 800;
+    cursor: pointer;
+    color: #76492D;
+}
+
+.tarefas-lista {
+    position: absolute;
+    height: 20px;
+    left: 20px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+    color: #252733;
+    padding: 10px 10px 10px 10px;
+}
+
+.tarefas-lista:hover {
+    cursor: pointer;
+}
+
+#tarefa-01 {
+    top: 105px;
+}
+
+#tarefa-02 {
+    top: 164px;
+}
+
+#tarefa-03 {
+    top: 222px;
+}
+
+#tarefa-04 {
+    top: 280px;
+}
+
+fieldset.tarefas hr {
+    border: 1px solid #DFE0EB;
+    margin: 58px 0;
+    position: relative;
+    top: 97px;
+}
+
+input {
+    all: unset;
+    border: 1px solid #C5C7CD;
+    border-radius: 3px;
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+}
+
+#tarefa-texto {
+    position: relative;
+    left: 15px;
+}
+
+input:checked {
+    background-color: #A7673F;
+}
+
+input:hover {
+    border: 1px solid #A7673F;
+}
