@@ -1,0 +1,13 @@
+{
+  "valorDosProdutos": 650,
+  "valorFinal": 480,
+  "empresa": 1,
+  "cliente": 1,
+  "produtos": [
+    {
+      "idProduto": 1,
+      "quantidadeVendido": 4,
+      "valorDeCadaProduto": 130
+    }
+  ]
+}

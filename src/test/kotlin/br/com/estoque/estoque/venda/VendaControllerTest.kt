@@ -62,4 +62,66 @@ class VendaControllerTest(
         )
             .andExpect(MockMvcResultMatchers.status().is4xxClientError)
     }
+
+    @Test
+    fun `nao deve criar uma venda quando os a requisicao nao tiver produto`() {
+
+        mockMvc.perform(
+            MockMvcRequestBuilders.post("/api/venda")
+                .accept(MediaType.APPLICATION_JSON)
+                .content(instanciaVenda400SemProdutoRequest())
+                .contentType(MediaType.APPLICATION_JSON)
+        )
+            .andExpect(MockMvcResultMatchers.status().is4xxClientError)
+    }
+
+    @Test
+    fun `nao deve criar uma venda quando o calculo dos produtos estiver errado`() {
+
+        mockMvc.perform(
+            MockMvcRequestBuilders.post("/api/venda")
+                .accept(MediaType.APPLICATION_JSON)
+                .content(instanciaVenda400CalculoErradoProdutosRequest())
+                .contentType(MediaType.APPLICATION_JSON)
+        )
+            .andExpect(MockMvcResultMatchers.status().is4xxClientError)
+    }
+
+    @Test
+    fun `nao deve criar uma venda quando a empresa nao existir`() {
+
+        mockMvc.perform(
+            MockMvcRequestBuilders.post("/api/venda")
+                .accept(MediaType.APPLICATION_JSON)
+                .content(instanciaVenda400EmpresaIdInexistenteRequest())
+                .contentType(MediaType.APPLICATION_JSON)
+        )
+            .andExpect(MockMvcResultMatchers.status().is4xxClientError)
+    }
+
+    @Test
+    fun `nao deve criar uma venda quando o produto nao existir`() {
+
+        mockMvc.perform(
+            MockMvcRequestBuilders.post("/api/venda")
+                .accept(MediaType.APPLICATION_JSON)
+                .content(instanciaVenda400ProdutoInexistenteRequest())
+                .contentType(MediaType.APPLICATION_JSON)
+        )
+            .andExpect(MockMvcResultMatchers.status().is4xxClientError)
+    }
+
+    @Test
+    fun `nao deve criar uma venda quando o cliente nao existir`() {
+
+        mockMvc.perform(
+            MockMvcRequestBuilders.post("/api/venda")
+                .accept(MediaType.APPLICATION_JSON)
+                .content(instanciaVenda400ClienteInexistenteRequest())
+                .contentType(MediaType.APPLICATION_JSON)
+        )
+            .andExpect(MockMvcResultMatchers.status().is4xxClientError)
+    }
+
+
 }

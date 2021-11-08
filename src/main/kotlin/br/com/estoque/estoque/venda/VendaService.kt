@@ -42,14 +42,14 @@ class VendaService(
             cliente.empresa != empresa -> throw ResponseStatusException(
                 HttpStatus.BAD_REQUEST, "Este cliente não é desta empresa."
             )
-            !calidaValorDaVendaIgualValorDosProdutosVendidos(vendaRequest) -> throw ResponseStatusException(
+            !validaValorDaVendaIgualValorDosProdutosVendidos(vendaRequest) -> throw ResponseStatusException(
                 HttpStatus.BAD_REQUEST, "Houve diferença entre o valor da venda com a soma do valor dos produtos."
             )
         }
         return true
     }
 
-    private fun calidaValorDaVendaIgualValorDosProdutosVendidos(vendaRequest: VendaRequest): Boolean {
+    private fun validaValorDaVendaIgualValorDosProdutosVendidos(vendaRequest: VendaRequest): Boolean {
         var valorVendido: BigDecimal = BigDecimal.ZERO
         vendaRequest.produtos.map {
             valorVendido += (it.valorDeCadaProduto.multiply(it.quantidadeVendido.toBigDecimal()))

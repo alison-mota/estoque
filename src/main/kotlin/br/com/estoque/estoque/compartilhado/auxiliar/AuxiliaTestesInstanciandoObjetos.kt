@@ -72,5 +72,10 @@ fun instanciaVendaRequest(produtos: Set<ProdutoRequestVenda>): VendaRequest = Ve
 
 fun instanciaProdutoRequestVenda(): ProdutoRequestVenda = ProdutoRequestVenda(1, 1, BigDecimal(100))
 
-fun instanciaVenda201Request(): String = loadResource("payload/venda/cria_venda_201_request.json")
-fun instanciaVenda400Request(): String = loadResource("payload/venda/cria_venda_400_request.json")
+fun instanciaVenda201Request(): String = loadResource("payload/venda/cria_venda_2xx_request.json")
+fun instanciaVenda400Request(): String = loadResource("payload/venda/cria_venda_4xx_request.json")
+fun instanciaVenda400SemProdutoRequest(): String = loadResource("payload/venda/cria_venda_4xx_sem_produtos_request.json")
+fun instanciaVenda400CalculoErradoProdutosRequest(): String = loadResource("payload/venda/cria_venda_4xx_com_calculo_errado_produtos_request.json")
+fun instanciaVenda400EmpresaIdInexistenteRequest(): String = loadResource("payload/venda/cria_venda_4xx_empresa_inexistente_request.json")
+fun instanciaVenda400ProdutoInexistenteRequest(): String = loadResource("payload/venda/cria_venda_4xx_id_produto_inexistente_request.json")
+fun instanciaVenda400ClienteInexistenteRequest(): String = loadResource("payload/venda/cria_venda_4xx_id_cliente_inexistente_request.json")
